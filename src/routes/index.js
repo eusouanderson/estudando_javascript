@@ -1,10 +1,10 @@
-import express from 'express'
+import {Router} from 'express'
 
 
-const router = express.Router();
+const router = Router();
 
-router.get('/', (res, req) => {
-	res.send('Api is Runnig...')
+router.get('/', (req, res) => {
+	res.send('router index')
 	
 }) 
 

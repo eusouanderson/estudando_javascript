@@ -1,15 +1,12 @@
 import express from 'express'
-import routes from './routes'
-
+import routes from './routes/index.js'
+import logger from './middlewares/logger.js'
 const app = express();
-
-const port = 3000;
-
 
 
 app.use(express.json());
-app.use('/api', routes)
+app.use(logger)
+app.use('/api', routes);
 
-app.listen(port, ()=> {
-	console.log('Api Is Running...')
-})
+
+export default app
