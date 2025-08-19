@@ -1,8 +1,8 @@
 import pkg from "pg";
 const { Pool } = pkg;
-import dotenv  from 'dotenv'
+import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
 const pool = new Pool({
   user: process.env.DATA_BASE_USER,
@@ -14,7 +14,6 @@ const pool = new Pool({
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
 });
-
 
 async function getClient() {
   return await pool.connect();
@@ -29,6 +28,5 @@ async function getUsers() {
     client.release();
   }
 }
-
 
 export { pool, getClient, getUsers };
