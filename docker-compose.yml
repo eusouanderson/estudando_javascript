@@ -1,0 +1,14 @@
+services:
+  db:
+    build: .
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: studies
+      POSTGRES_PASSWORD: studies123
+      POSTGRES_DB: studydb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

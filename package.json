@@ -6,23 +6,25 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
-    
+    "dev": "nodemon src/server.js",
+    "format": "prettier --write '**/*.{js,ts,json,css}'"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "module-alias": "^2.2.3"
+    "module-alias": "^2.2.3",
+    "pg": "^8.16.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.28.3",
     "@babel/node": "^7.28.0",
     "@babel/preset-env": "^7.28.3",
+    "babel-plugin-module-resolver": "^5.0.2",
     "nodemon": "^3.1.10"
   },
-
   "_moduleAliases": {
-      "@": "src"
-    }
+    "@": "src"
+  }
 }

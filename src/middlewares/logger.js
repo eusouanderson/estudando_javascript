@@ -5,11 +5,11 @@ async function logger(req, res, next) {
     const duration = Date.now() - start;
 
     console.log(
-      `[${new Date().toISOString()}] ${req.method} ${req.originalUrl} → ${res.statusCode} (${duration}ms)`
+      `[${new Date().toISOString()}] ${req.method} ${req.originalUrl} → ${res.statusCode} (${duration}ms)`,
     );
   });
 
   next();
 }
 
-export default logger
+export default logger;
