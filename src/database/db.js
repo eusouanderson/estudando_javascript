@@ -1,8 +1,10 @@
 import pkg from "pg";
-const { Pool } = pkg;
 import dotenv from "dotenv";
+import { drizzle } from "drizzle-orm/node-postgres";
 
 dotenv.config();
+
+const { Pool } = pkg;
 
 const pool = new Pool({
   user: process.env.DATA_BASE_USER,
@@ -15,18 +17,7 @@ const pool = new Pool({
   connectionTimeoutMillis: 2000,
 });
 
-async function getClient() {
-  return await pool.connect();
-}
 
-async function getUsers() {
-  const client = await pool.connect();
-  try {
-    const res = await client.query("SELECT * FROM users");
-    return res.rows;
-  } finally {
-    client.release();
-  }
-}
+const db = drizzle(pool);
 
-export { pool, getClient, getUsers };
+export { db, pool };
